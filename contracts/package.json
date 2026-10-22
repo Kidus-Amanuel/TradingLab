@@ -1,0 +1,16 @@
+{
+  "name": "@tradinglab/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Generated TypeScript type definitions from FastAPI OpenAPI schema",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "codegen": "openapi-typescript ../backend/openapi.json -o src/api-types.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.4.4",
+    "typescript": "^5.7.2"
+  }
+}

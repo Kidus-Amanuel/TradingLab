@@ -1,0 +1,30 @@
+# Configured instruments (Forex and Crypto)
+# Phase 0 default pairs: EURUSD and BTC/USDT
+
+instruments:
+  forex:
+    - symbol: "EURUSD"
+      asset_class: "forex"
+      base_currency: "EUR"
+      quote_currency: "USD"
+      lot_size: 100000
+      pip_size: 0.0001
+      min_lot: 0.01
+      max_lot: 10.0
+      lot_step: 0.01
+      main_timeframe: "1h"
+      active: true
+
+  crypto:
+    - symbol: "BTC/USDT"
+      asset_class: "crypto"
+      base_currency: "BTC"
+      quote_currency: "USDT"
+      lot_size: 1.0
+      tick_size: 0.01
+      min_amount: 0.0001
+      max_amount: 10.0
+      amount_step: 0.0001
+      min_notional_usd: 5.0
+      main_timeframe: "1h"
+      active: true

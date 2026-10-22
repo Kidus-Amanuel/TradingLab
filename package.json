@@ -1,0 +1,13 @@
+{
+  "name": "trading-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TradingLab: Research and paper-trading system for Forex and Crypto (monorepo)",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "dev:frontend": "pnpm --filter frontend dev",
+    "build:frontend": "pnpm --filter frontend build",
+    "lint:frontend": "pnpm --filter frontend lint",
+    "codegen": "pnpm --filter @tradinglab/contracts codegen"
+  }
+}

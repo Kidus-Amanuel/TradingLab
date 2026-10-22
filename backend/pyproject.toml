@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tradinglab"
+version = "0.1.0"
+description = "Research and paper-trading safety and glue layer for Forex and crypto"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "TradingLab Team" }
+]
+dependencies = [
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    "structlog>=24.4.0",
+    "pyyaml>=6.0.2",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "typer>=0.15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-cov>=6.0.0",
+    "hypothesis>=6.120.0",
+    "import-linter>=2.1",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+    "types-pyyaml>=6.0.12.20241230",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "B", "UP", "C4", "SIM", "TCH"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.importlinter]
+root_package = "tradinglab"
+
+[[tool.importlinter.contracts]]
+name = "Strategy layer cannot import execution or risk"
+type = "forbidden"
+source_modules = ["tradinglab.adapters"]
+forbidden_modules = ["tradinglab.risk", "tradinglab.api"]
+
+[[tool.importlinter.contracts]]
+name = "Only order manager reaches brokers"
+type = "layers"
+layers = [
+    "tradinglab.api",
+    "tradinglab.risk",
+    "tradinglab.domain",
+    "tradinglab.core",
+]

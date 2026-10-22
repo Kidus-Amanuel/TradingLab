@@ -1,0 +1,23 @@
+# Transaction costs and slippage models (Reference R5)
+# Every backtest must state and stress these costs (1.0x, 1.5x, 2.0x)
+
+stress_multipliers:
+  baseline: 1.0
+  stressed_1: 1.5
+  stressed_2: 2.0
+
+forex_costs:
+  EURUSD:
+    spread_pips: 1.2
+    commission_per_lot_usd: 7.00
+    swap_long_pips: -0.6
+    swap_short_pips: 0.1
+    slippage_model: "linear_volume"
+    slippage_pips_base: 0.2
+
+crypto_costs:
+  "BTC/USDT":
+    maker_fee_pct: 0.02
+    taker_fee_pct: 0.05
+    slippage_pct_base: 0.02
+    funding_rate_default_pct: 0.01

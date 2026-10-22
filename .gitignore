@@ -1,0 +1,73 @@
+# Node & pnpm
+node_modules/
+.pnpm-store/
+dist/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Testing & Quality
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+
+# Environment and Secrets (Hard Rule 4: never commit secrets)
+.env
+.env*.local
+*.pem
+*.key
+*.cert
+
+# Database / SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Runtime Data (Reference R3: git-ignored runtime folders)
+data/*
+!data/.gitkeep
+runs/*
+!runs/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# OS and Editor Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

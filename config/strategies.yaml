@@ -1,0 +1,16 @@
+# Strategies configuration
+# Note: Phase 3 MA-crossover is a pipeline integration test, not an assumed edge.
+
+strategies:
+  pipeline_test_ma_atr:
+    strategy_id: "strat_baseline_ma_atr_v1"
+    name: "MA Crossover with ATR Stop"
+    active: false
+    parameters:
+      fast_period: 20
+      slow_period: 50
+      atr_period: 14
+      atr_multiplier: 2.0
+    allowed_instruments:
+      - "EURUSD"
+      - "BTC/USDT"

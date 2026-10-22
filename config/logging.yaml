@@ -1,0 +1,21 @@
+# Logging and Audit Trail Configuration (Reference R4)
+
+operational_logging:
+  level: "INFO"
+  format: "json"
+  file_path: "logs/operational.log"
+  rotation: "10 MB"
+  retention: "14 days"
+
+audit_trail:
+  enabled: true
+  file_path: "logs/audit.log"
+  fail_closed_on_error: true       # Order is blocked if audit write fails
+  redaction_enabled: true
+  redacted_keys:
+    - "api_key"
+    - "secret"
+    - "password"
+    - "token"
+    - "private_key"
+    - "passphrase"

@@ -1,0 +1,16 @@
+# Risk Gate and Portfolio Limits (Reference R6)
+# Rules implemented strictly by our code, never relaxed.
+
+risk_parameters:
+  risk_per_trade_pct: 0.25         # Configurable (0.25% - 0.5%)
+  max_daily_loss_pct: 2.0          # Stop new entries if daily loss exceeds 2%
+  max_drawdown_pct: 10.0           # Stop new entries if drawdown exceeds 10%
+  max_open_positions: 3            # Total concurrent open positions
+  max_leverage: 5.0                # Cap leverage
+  max_spread_pips_cap: 3.0         # Reject Forex orders if spread spikes above 3 pips
+  max_quote_staleness_seconds: 10  # Fail-closed if market quote is older than 10s
+
+kill_switch:
+  storage_path: "data/kill_switch.flag"
+  default_state: false
+  fail_closed_on_missing_state: true
